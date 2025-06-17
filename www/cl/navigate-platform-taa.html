@@ -1,0 +1,51 @@
+<!-- Create Landing Page > Freetype markup component -->
+<style type="text/css">body {margin:0; padding:0;overflow-y: hidden;}
+    header {display:none;}
+    footer {display:none;}
+    iframe {display:block; height:100vh; width:100vw; border:none; background:#fff;}
+</style>
+<script>
+// Function to get the value of a URL parameter
+function getParameterByName(name) {
+    const url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+    const results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+// Create a new div and set its styles
+document.body.innerHTML = ''; // Clear the existing content
+const div = document.createElement('div');
+div.style.width = '100%';
+div.style.height = '100%';
+div.style.position = 'absolute';
+div.style.top = '0';
+div.style.left = '0';
+const bodyEl = document.getElementsByTagName("body")[0];
+bodyEl.style.overflow = "hidden";
+
+// Create an iframe and set its attributes
+let iframe = document.createElement('iframe');
+iframe.src = 'https://croneri.netlify.app/cl/navigate-platform-taa';
+iframe.width = '100%'; 
+iframe.height = '100%'; 
+iframe.cellspacing = '0'; 
+iframe.frameborder = '0'; 
+iframe.style.border = 'none'; 
+
+// Get the 'source' parameter from the URL
+const sourceValue = getParameterByName('source');
+if (sourceValue) {
+    iframe.src += `?source=${sourceValue}`;
+}
+
+// Append the iframe to the div
+div.appendChild(iframe);
+
+// Append the div to the body of the document
+document.body.appendChild(div);
+</script><!-- load normally without source value just in case -->
+<div style="height:100%;"><iframe border="0" cellspacing="0" frameborder="0" src="https://croneri.netlify.app/cl/navigate-platform-taa" title="Arrange access to Croner‑i's platform"></iframe></div>

@@ -1,0 +1,45 @@
+<style type="text/css">body {margin:0; padding:0;}
+    header {display:none;}
+    footer {display:none;}
+    iframe {display:block; height:100vh; width:100vw; border:none; background:#fff;}
+</style>
+<script>
+// Function to get all parameters from the current URL as a query string
+function getAllParameters() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.toString(); // Returns the full query string
+}
+
+document.body.innerHTML = ''; // Clear the existing content
+const div               = document.createElement('div');
+div.style.width         = '100%';
+div.style.height        = '100%';
+div.style.position      = 'absolute';
+div.style.top           = '0';
+div.style.left          = '0';
+
+// Create an iframe and set its attributes
+let iframe              = document.createElement('iframe');
+let baseUrl             = 'https://pages.croneri.co.uk/rs/463-YBC-525/images/h-s-container-v3.html';
+const allParams         = getAllParameters(); // Get all parameters from the URL
+iframe.src              = allParams ? `${baseUrl}?${allParams}` : baseUrl;
+iframe.width            = '100%'; 
+iframe.height           = '100%'; 
+iframe.cellspacing      = '0'; 
+iframe.frameborder      = '0'; 
+iframe.style.border     = 'none';
+
+// Append the iframe to the div
+div.appendChild(iframe);
+
+// Append the div to the body of the document
+document.body.appendChild(div);
+</script><noscript>
+    <!-- Fallback iframe for browsers with JavaScript disabled -->
+    <div style="height:100%; width:100%;">
+        <iframe src="https://pages.croneri.co.uk/rs/463-YBC-525/images/h-s-container-v3.html" 
+                style="display:block; height:100vh; width:100vw; border:none;" 
+                title="Arrange access to Navigate Health & Safety">
+        </iframe>
+    </div>
+</noscript>

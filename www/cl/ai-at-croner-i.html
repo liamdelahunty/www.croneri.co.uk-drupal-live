@@ -1,0 +1,50 @@
+<meta charset="UTF-8">
+<title></title>
+<style type="text/css">body {margin:0; padding:0;}
+    header {display:none;}
+    footer {display:none;}
+    iframe {display:block; height:100vh; width:100vw; border:none; background:#fff;}
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Function to get all parameters from the current URL as a query string
+      function getAllParameters() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.toString(); // Returns the full query string
+      }
+      // Clear the existing content
+      document.body.innerHTML = '';
+
+      // Create the container div
+      const div = document.createElement('div');
+      div.style.width = '100%';
+      div.style.height = '100%';
+      div.style.position = 'absolute';
+      div.style.top = '0';
+      div.style.left = '0';
+
+      // Create and configure iframe
+      const iframe = document.createElement('iframe');
+      const baseUrl = 'https://croneri.netlify.app/cl/ai-at-croner-i';
+      const allParams = getAllParameters();
+      iframe.src = allParams ? `${baseUrl}?${allParams}` : baseUrl;
+      iframe.style.border = 'none';
+      iframe.style.width = '100vw';
+      iframe.style.height = '100vh';
+      iframe.setAttribute('title', 'AI at Croner-i');
+      // Optional: iframe.setAttribute('sandbox', '');
+
+      // Append
+      div.appendChild(iframe);
+      document.body.appendChild(div);
+      console.log('In script to write iframe.');
+    });
+  </script><noscript>
+    <!-- Fallback iframe for browsers with JavaScript disabled -->
+    <div style="height:100%; width:100%;">
+      <iframe src="https://croneri.netlify.app/cl/ai-at-croner-i"
+              style="display:block; height:100vh; width:100vw; border:none;"
+              title="AI at Croner-i">
+      </iframe>
+    </div>
+  </noscript>

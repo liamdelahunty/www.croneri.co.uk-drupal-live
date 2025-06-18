@@ -1,0 +1,31 @@
+Paste this into the console.
+
+const data = {
+  "rows": [
+    {
+      "keys": [
+        "https://www.croneri.co.uk/"
+      ],
+      "clicks": 25312,
+      "impressions": 155001,
+      "ctr": 0.16330217224405003,
+      "position": 11.382539467487307
+    },
+    {
+      "keys": [
+        "https://www.croneri.co.uk/tax-audit-accounting/my-vip-tax-team"
+      ],
+      "clicks": 1071,
+      "impressions": 11111,
+      "ctr": 0.0963909639096391,
+      "position": 27.709477094770946
+    },
+    {
+      [... etc ... ]
+    },
+  ],
+  "responseAggregationType": "byPage"
+};
+
+const urls = data.rows.map(row => row.keys[0]);
+console.log(urls);
